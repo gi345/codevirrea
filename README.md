@@ -1,28 +1,46 @@
  HEAD
+ HEAD
 # codevirrea
-=======
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 🚀 Full-Stack SaaS Code Editor  
+ 21ea478 (Added README file with project details)
 
-First, run the development server:
+![Project Banner](public/screenshot.png)  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This is a **SaaS-based online code editor** built with **Next.js 15, TypeScript, Clerk authentication, and Convex database**. It allows users to write, execute, and manage code snippets across **10 programming languages** with real-time saving and authentication.  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features  
+✅ **Tech Stack:** Next.js 15 + TypeScript + Convex (Database) + Clerk (Authentication)  
+✅ **Code editor with support for 10 programming languages**  
+✅ **User authentication via Clerk** (Sign in with Google, GitHub, etc.)  
+✅ **Convex-powered Database** for storing user snippets  
+✅ **Snippet Management** – Save, edit, delete, and organize your code  
+✅ **Customizable themes & VS Code-like interface**  
+✅ **Execution history & error handling**  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🖥️ Supported Programming Languages  
+The editor supports the following languages:  
+- Java  
+- Go  
+- Rust  
+- C++  
+- Python  
+- Ruby  
+- JavaScript  
+- C#  
+- TypeScript  
+- Swift  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Snippet Management  
+- Users can **create, edit, delete, and search** saved snippets.  
+- **Real-time updates** powered by Convex.  
+- Filter snippets based on **language, date, and execution status**.  
 
+## 🚀 Getting Started  
+
+ HEAD
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
@@ -38,3 +56,5 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
  a354175 (Initial commit from Create Next App)
+
+ 21ea478 (Added README file with project details)
