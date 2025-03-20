@@ -12,20 +12,17 @@ import useMounted from "@/hooks/useMounted";
 import ShareSnippetDialog from "./ShareSnippetDialog";
 
 function EditorPanel() {
-  console.log(Editor);  // Should print a function/component, not an object
-  console.log("ShareSnippetDialog:", ShareSnippetDialog);
-  console.log("EditorPanelSkeleton:", EditorPanelSkeleton);
-
   const clerk = useClerk();
   const [isShareDialogOpen, setIsShareDialogOpen] = useState(false);
   const { language, theme, fontSize, editor, setFontSize, setEditor } = useCodeEditorStore();
-
   const mounted = useMounted();
 
   useEffect(() => {
-    const savedCode = localStorage.getItem(`editor-code-${language}`);
-    const newCode = savedCode || LANGUAGE_CONFIG[language].defaultCode;
-    if (editor) editor.setValue(newCode);
+    if (editor) {
+      const savedCode = localStorage.getItem(`editor-code-${language}`);
+      const newCode = savedCode || LANGUAGE_CONFIG[language]?.defaultCode;
+      editor.setValue(newCode);
+    }
   }, [language, editor]);
 
   useEffect(() => {
@@ -34,7 +31,7 @@ function EditorPanel() {
   }, [setFontSize]);
 
   const handleRefresh = () => {
-    const defaultCode = LANGUAGE_CONFIG[language].defaultCode;
+    const defaultCode = LANGUAGE_CONFIG[language]?.defaultCode || "";
     if (editor) editor.setValue(defaultCode);
     localStorage.removeItem(`editor-code-${language}`);
   };
@@ -58,7 +55,7 @@ function EditorPanel() {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#1e1e2e] ring-1 ring-white/5">
-              <Image src={"/" + language + ".png"} alt="Logo" width={24} height={24} />
+              <Image src={`/${language}.png`} alt="Logo" width={24} height={24} />
             </div>
             <div>
               <h2 className="text-sm font-medium text-white">Code Editor</h2>
@@ -84,6 +81,7 @@ function EditorPanel() {
               </div>
             </div>
 
+            {/* Refresh Button */}
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
@@ -108,16 +106,16 @@ function EditorPanel() {
           </div>
         </div>
 
-        {/* Editor  */}
+        {/* Editor */}
         <div className="relative group rounded-xl overflow-hidden ring-1 ring-white/[0.05]">
-          {clerk.loaded && (
+          {clerk.loaded ? (
             <Editor
               height="600px"
-              language={LANGUAGE_CONFIG[language].monacoLanguage}
+              language={LANGUAGE_CONFIG[language]?.monacoLanguage || "javascript"}
               onChange={handleEditorChange}
               theme={theme}
               beforeMount={defineMonacoThemes}
-              onMount={(editor) => setEditor(editor)}
+              onMount={(editorInstance) => setEditor(editorInstance)}
               options={{
                 minimap: { enabled: false },
                 fontSize,
@@ -140,13 +138,14 @@ function EditorPanel() {
                 },
               }}
             />
+          ) : (
+            <EditorPanelSkeleton />
           )}
-
-          {!clerk.loaded && <EditorPanelSkeleton />}
         </div>
       </div>
       {isShareDialogOpen && <ShareSnippetDialog onClose={() => setIsShareDialogOpen(false)} />}
     </div>
   );
 }
+
 export default EditorPanel;
