@@ -21,7 +21,7 @@ function EditorPanel() {
     if (editor) {
       const savedCode = localStorage.getItem(`editor-code-${language}`);
       const newCode = savedCode || LANGUAGE_CONFIG[language]?.defaultCode;
-      editor.setValue(newCode);
+      editor?.setValue(newCode);
     }
   }, [language, editor]);
 
