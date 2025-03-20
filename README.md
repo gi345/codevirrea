@@ -1,11 +1,15 @@
  HEAD
  HEAD
+ HEAD
 # codevirrea
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 # 🚀 Full-Stack SaaS Code Editor  
  21ea478 (Added README file with project details)
+
+# 🚀 Full-Stack SaaS Code Editor  
+>>>>>>> 52d4166 (Initial commit with README and project files)
 
 ![Project Banner](public/screenshot.png)  
 
@@ -38,6 +42,7 @@ The editor supports the following languages:
 - **Real-time updates** powered by Convex.  
 - Filter snippets based on **language, date, and execution status**.  
 
+ HEAD
 ## 🚀 Getting Started  
 
  HEAD
@@ -58,3 +63,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
  a354175 (Initial commit from Create Next App)
 
  21ea478 (Added README file with project details)
+52d4166 (Initial commit with README and project files)
